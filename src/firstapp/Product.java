@@ -1,23 +1,24 @@
 package firstapp;
-import java.util.Scanner;
+
 public class Product {
-   String name, status;
-   int pid, stks, price, tep;
+   String name;
+   int pid, stks, sold;
+   double price;
    
-   public void addProduct(String nm, String st, int pd, int pr, int stk, int tp){
-       this.name = nm;
-       this.pid = pd;
-       this.price = pr;
-       this.stks = stk;
-       this.tep = tp; 
-       this.status = st;
-   }
+   public void addProduct(int pd, String nm,  double pr, int stk, int sd) {
+    this.pid = pd;
+    this.name = nm;
+    this.price = pr;
+    this.stks = stk;
+    this.sold = sd;
+}
    
    public void viewProduct(){
-       double totalExpectedprofit = this.price * this.stks;
-       String Status = (this.stks < 0) ? "Available" : "Out of Stock";
+       double profit = this.price * this.sold;
+       double tep = this.stks * this.price;
+       String Status = (this.stks > 0) ? "Available" : "Out of Stock";
        
        
-       System.out.printf("%-10d %-10s %-10d %-10d %-10s %-10d\n", this.pid, this.name, this.price, this.stks, Status, totalExpectedprofit);
+       System.out.printf("%-10d %-10s %-10.2f %-10d %-10.2f %-10s\n", this.pid, this.name, this.price, this.stks, this.sold, profit, Status);
    }
 }
