@@ -44,19 +44,19 @@ public class FirstApp {
         for ( i = 0; i < nump; i++){
             pr[i].viewProduct();
         }
-            System.out.println("Total Profit: "+ttp);
+            System.out.println("\nTotal Profit: "+ttp);
             System.out.println("Total TEP: "+ttp); */
         
-        Accounts[] acc = new Accounts[100];
-        Scanner ac = new Scanner(System.in);
+        Accounts[] ac = new Accounts[100];
+        Scanner in = new Scanner(System.in);
        
         int no, i;
 
         System.out.print("Enter number of Accounts: ");
-        no = ac.nextInt();
+        no = in.nextInt();
 
         for (i = 0; i < no; i++) {
-            acc[i] = new Accounts();
+            ac[i] = new Accounts();
          
             boolean identi;
             boolean email1;
@@ -65,71 +65,71 @@ public class FirstApp {
             System.out.println("Enter account Details " + (i + 1) + ": ");
             while (true) {
                 System.out.print("Enter ID: ");
-                int id = ac.nextInt();
+                int id = in.nextInt();
                 identi = false;
 
                
                 for (int x = 0; x < i; x++) {
-                    if (acc[x] != null && acc[x].id == id) {
+                    if (ac[x] != null && ac[x].id == id) {
                         identi = true;
                         break;
                     }
                 }
 
                 if (identi) {
-                    System.out.println(" - ID already exists. Try again -");
+                    System.out.println("ID already exists. Try another one");
                 } else {
                    
-                    acc[i].id = id;
+                    ac[i].id = id;
                     break;
                 }
             }
            
             System.out.print("First Name: ");
-            String fname = ac.next();
+            String fname = in.next();
             System.out.print("Last Name: ");
-            String lname = ac.next();
+            String lname = in.next();
            
              while (true) {
                 System.out.print("Email: ");
-                String email = ac.next();
+                String email = in.next();
                 email1 = false;
 
                
                 for (int x = 0; x < i; x++) {
-                    if (acc[x] != null && acc[x].email.equals(email)) {
+                    if (ac[x] != null && ac[x].email.equals(email)) {
                         email1 = true;
                         break;
                     }
                 }
 
                 if (email1) {
-                    System.out.println(" - Email already exists. Try again -");
+                    System.out.println("Email already exists. Try another one");
                 } else {
                    
-                    acc[i].email = email;
+                    ac[i].email = email;
                     break;
                 }
             }
            
              while (true) {
                 System.out.print("Username: ");
-                String user = ac.next();
+                String user = in.next();
                 username = false;
 
                
                 for (int x = 0; x < i; x++) {
-                    if (acc[x] != null && acc[x].username.equals(user)) {
+                    if (ac[x] != null && ac[x].username.equals(user)) {
                         username = true;
                         break;
                     }
                 }
 
                 if (username) {
-                    System.out.println(" - Username already exists. Try again -");
+                    System.out.println("Username already exists. Try another one");
                 } else {
                    
-                    acc[i].username = user;
+                    ac[i].username = user;
                     break;
                 }
             }
@@ -138,13 +138,13 @@ public class FirstApp {
            
             while (!passValid) {
                 System.out.print("Password: ");
-                String password = ac.next();
+                String password = in.next();
 
-                if (acc[i].isValidPassword(password)) {
-                    acc[i].addAccount(acc[i].id, fname, lname, acc[i].email, acc[i].username, password);
+                if (ac[i].isValidPassword(password)) {
+                    ac[i].addAccount(ac[i].id, fname, lname, ac[i].email, ac[i].username, password);
                     passValid = true;  
                 } else {
-                    System.out.println(" - Invalid password - , Try Again ");
+                    System.out.println("Invalid password, Try Again! ");
                 }
             }
             System.out.println("");
@@ -155,8 +155,8 @@ public class FirstApp {
          System.out.printf("%-10s %-10s %-10s %-20s %-13s %-10s\n","ID", "FirstName", "LastName", "Email", "Username", "Password");
          System.out.println("---------------------------------------------------------------------------------");
         for (i = 0; i < no; i++) {
-            if(acc[i] != null){
-            acc[i].viewAccount();
+            if(ac[i] != null){
+            ac[i].viewAccount();
             System.out.println("");
         }
         }

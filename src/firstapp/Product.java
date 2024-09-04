@@ -2,7 +2,7 @@ package firstapp;
 
 public class Product {
    String name;
-   int pid, stks, tep;
+   int pid, stks, tep; 
    double price;
    
    public void addProduct(int pd, String nm,  double pr, int stk, int temp) {
@@ -18,6 +18,6 @@ public class Product {
        String Status = (this.stks == 0) ? "Available" : "Out of Stock";
        
        
-       System.out.printf("%-10d %-10s %-10d %-10d %-10s %-10.2f\n", this.pid, this.name, this.price, this.stks, Status, total);
+       System.out.printf("%-10d %-10s %-10.2f %-10d %-15s %-10.2f\n", this.pid, this.name, this.price, this.stks, Status, total);
    }
 }
