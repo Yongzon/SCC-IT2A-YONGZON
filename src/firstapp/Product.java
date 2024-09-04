@@ -15,7 +15,7 @@ public class Product {
    
    public void viewProduct(){
        double total = this.price * this.tep;
-       String Status = (this.stks == 0) ? "Available" : "Out of Stock";
+       String Status = (this.stks > 0) ? "Available" : "Out of Stock";
        
        
        System.out.printf("%-10d %-10s %-10.2f %-10d %-15s %-10.2f\n", this.pid, this.name, this.price, this.stks, Status, total);
