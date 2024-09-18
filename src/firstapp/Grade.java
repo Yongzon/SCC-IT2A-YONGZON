@@ -15,10 +15,10 @@ public void editGrades(Grades[] grs, int id, int size){
                   grs[i].m = nmid;
                   System.out.println("PreFinal: ");
                   double npref = sc.nextDouble();
-                  grs[i].m = npref;
+                  grs[i].pf = npref;
                   System.out.println("Final: ");
                   double nfinal = sc.nextDouble();
-                  grs[i].m = nfinal;
+                  grs[i].f = nfinal;
             }
         }
 }
