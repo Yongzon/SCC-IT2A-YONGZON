@@ -13,15 +13,11 @@ public class Accounts {
         this.lname = lname;
         this.email = email;
         this.username = username;
-        this.pass = password;
-       
-       
+        this.pass = password;   
     }
    
     public void viewAccount(){
-       
         System.out.printf("%-10d %-10s %-10s %-20s %-13s %-10s\n",this.id,this.fname,this.lname,this.email,this.username,this.pass);
-   
     }
    
     public boolean isValidPassword(String password){
@@ -63,7 +59,6 @@ public class Accounts {
             System.out.println("Must have a special character");
             return false;
         }  
-       
         return true;
     }
 }

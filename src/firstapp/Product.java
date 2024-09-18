@@ -1,23 +1,38 @@
 package firstapp;
-
+import java.util.Scanner;
 public class Product {
-   String name;
-   int pid, stks, tep; 
-   double price;
-   
-   public void addProduct(int pd, String nm,  double pr, int stk, int temp) {
-    this.pid = pd;
-    this.name = nm;
-    this.price = pr;
-    this.stks = stk;
-    this.tep = temp;
-}
-   
-   public void viewProduct(){
-       double total = this.price * this.tep;
-       String Status = (this.stks > 0) ? "Available" : "Out of Stock";
-       
-       
-       System.out.printf("%-10d %-10s %-10.2f %-10d %-15s %-10.2f\n", this.pid, this.name, this.price, this.stks, Status, total);
-   }
+    
+    Scanner sc = new Scanner(System.in);
+        Products[] pr = new Products[100];
+        
+        int nump, i;
+        int ttp = 0;
+        
+public void manageProducts(){
+        System.out.print("Enter no. of Products: ");
+        nump = sc.nextInt();
+    
+        for (i = 0; i< nump; i++){
+            System.out.println("Enter details of Product "+(i + 1)+": ");
+            System.out.print("ID: ");
+            int id = sc.nextInt();
+            System.out.print("Name: ");
+            String nm = sc.next();
+            System.out.print("Price: ");
+            double pri = sc.nextDouble();
+            System.out.print("Stock: ");
+            int stk = sc.nextInt();
+            System.out.print("Sold: ");
+            int sld = sc.nextInt();
+            pr[i]= new Products();
+            pr[i].addProducts(id, nm, pri, stk, sld);
+            ttp = (int) (ttp + (pri * sld));
+        }
+        
+        for ( i = 0; i < nump; i++){
+            pr[i].viewProducts();
+        } 
+            System.out.println("\nTotal Profit: "+ttp);
+            System.out.println("Total TEP: "+ttp);  
+    }    
 }
